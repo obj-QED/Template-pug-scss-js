@@ -9,6 +9,12 @@
 // Основное
 @import "base/fonts";
 @import "base/general";
+@import "base/container";
 
 // БЭМ-блоки
 @import "../blocks/modules/modules";
+
+// Компоненты
+@import "../blocks/components/components";
+
+// src/styles/main.scss

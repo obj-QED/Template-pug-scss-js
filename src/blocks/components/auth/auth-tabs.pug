@@ -1,0 +1,23 @@
+//- -const preloaderText = 'Loading...'
+
+
+.view
+  .container
+    .auth
+      .tab
+        .tab__nav
+          button.btn.btn-nav
+            span SIGN UP
+          button.btn.btn-nav.btn-nav--active
+            span LOG IN
+        .tab__content
+          form.login(action="#")
+            .form-group
+              input#login.form-control(type="text" placeholder="login" required)
+            .form-group
+              input#password.form-control(type="text" placeholder="password" required)
+            .form-group
+              button.btn.btn-login.btn-send(type="submit") continue
+      button.btn.btn-launch-setting
+        img.spinner(src="/img/svg/settings.svg" alt="preloader")
+        span LAUNCH SETTINGS

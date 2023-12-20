@@ -1,0 +1,40 @@
+@use "sass:math";
+$maxWidth: 1280;
+
+@mixin font($size, $sizeMobile: null, $weight: 400, $color: null) {
+    @include size($size, $sizeMobile);
+
+    font-weight: $weight;
+
+    @if $color != null {
+        color: $color;
+    }
+}
+
+@mixin flexbox($display: flex, $flow: null, $justifyContent: null, $alignItems: null, $gap: null, $wrap: null) {
+    display: $display;
+    flex-wrap: $wrap;
+    flex-flow: $flow;
+    align-items: $alignItems;
+    justify-content: $justifyContent;
+    gap: $gap;
+}
+
+@mixin size($pcSize, $mobSize) {
+    $addSize: $pcSize - $mobSize;
+    $maxWidth: $maxWidth - 320;
+
+    font-size: calc(#{$mobSize}px + #{$addSize} * ((100vw - 320px) / #{$maxWidth}));
+}
+
+@mixin pxToEm($property, $value) {
+    $values: ();
+
+    @each $val in $value {
+        $emValue: math.div($val, 16) + em;
+        // eslint-disable-next-line
+        $values: join($values, $emValue, space);
+    }
+
+    #{$property}: $values;
+}
