@@ -20,7 +20,11 @@ function innerHeightVh() {
 }
 
 window.addEventListener("load", function () {
+    console.log("load");
     checkDevice();
     innerHeightVh();
 });
-window.addEventListener("resize", checkDevice);
+window.addEventListener("resize", function () {
+    checkDevice();
+    innerHeightVh();
+});

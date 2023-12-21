@@ -1,14 +1,13 @@
 //- -const preloaderText = 'Loading...'
 
 
-.view
-  .container
-    .auth
-      form.login(action="#")
-        .form-group
-          input#code.form-control(type="number" placeholder="PIN CODE" value="8889" required)
-        .form-group
-          button.btn.btn-login.btn-send(type="submit") log in
-      button.btn.btn-launch-setting
-        img.spinner(src="/img/svg/settings.svg" alt="preloader")
-        span LAUNCH SETTINGS
+.auth.container
+    form.login(action="#")
+      .form-group
+        input#code.form-control(type="number" placeholder="PIN CODE" value="8889" required)
+      .form-group
+        button.btn.btn-login.btn-send(type="submit") log in
+    button.btn.btn-launch-setting
+      svg.icon
+        use(xlink:href='/img/sprites/sprite.svg#settings')
+      span LAUNCH SETTINGS

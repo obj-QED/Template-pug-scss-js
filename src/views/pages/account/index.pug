@@ -1,0 +1,18 @@
+extends ../../layouts/default
+include ../../helpers/mixins
+
+block variables
+  - const title = "Account profile"
+
+block content
+  .account.container
+    - const iconNames = ['profile', 'search', 'calendar', 'settings', 'notice'];
+    - const activeIndex = 0; 
+
+
+      .account-navigation
+        each iconName, index in iconNames
+          +account-nav(iconName, index === activeIndex)
+      .account-content
+        include ../../../blocks/components/account/account-home/account-home
+      include ../../../blocks/components/account/account-balance-info/account-balance-info

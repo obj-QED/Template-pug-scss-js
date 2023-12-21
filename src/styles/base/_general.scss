@@ -8,6 +8,7 @@ $lgx: 1440px;
 $xl: 1920px;
 $xxl: 2560px;
 
+$white: #fff;
 $black: #000;
 $green: #55b63d;
 $red: #ba2222;
@@ -26,11 +27,8 @@ $border-radius: 5px;
 }
 
 body {
-    height: calc(var(--vh, 1vh) * 100);
-
     font-family: "Inter", sans-serif;
     font-size: 14px;
-    background: #181c2c;
 
     &::-webkit-scrollbar {
         display: none;
@@ -57,36 +55,53 @@ a {
 }
 
 .view {
-    width: 100%;
-    height: 100%;
-    background: #171c2c;
-    color: #fff;
+    @include flexbox($alignItems: center, $justifyContent: center, $flow: column nowrap);
 
-    @media (min-width: $mdx_s) {
-        padding: 10px 0;
+    background: #181c2c;
+    color: $white;
+
+    height: 100vh;
+    min-height: calc(var(--vh, 1vh) * 100);
+
+    @media (max-width: $mdx_s) and (orientation: landscape) {
+        height: 100vh;
     }
 }
 
-.btn-back {
+.handle-back {
     width: 100%;
-    border: none;
+    padding: 0 !important;
 
-    &__change-password {
-        @include flexbox($alignItems: center, $flow: row nowrap, $gap: 10px);
-        @include pxToEm(padding, 15);
-        background: transparent;
+    .btn-back {
+        width: 100%;
+        border: none;
 
-        .icon {
-            width: 20px;
-            height: 20px;
-        }
+        cursor: pointer;
 
-        span {
-            @include font(18, 18, 700, #fff);
+        &__change-password {
+            @include flexbox($alignItems: center, $flow: row nowrap, $gap: 10px);
+            @include pxToEm(padding, 15);
+            background: rgba(24, 28, 44, 1);
 
-            display: block;
-            width: 100%;
-            text-transform: uppercase;
+            .icon {
+                width: 20px;
+                height: 20px;
+
+                use {
+                    stroke: $white;
+                    stroke-width: 7px;
+                    stroke-linecap: round;
+                    stroke-linejoin: round;
+                }
+            }
+
+            span {
+                @include font(18, 18, 700, $white);
+
+                display: block;
+                width: 100%;
+                text-transform: uppercase;
+            }
         }
     }
 }

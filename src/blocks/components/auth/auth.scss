@@ -4,63 +4,45 @@
     width: 100%;
     height: 100%;
 
+    min-height: inherit;
+
     background: #1e2b59;
-    box-shadow: 0px 4px 15px 0px #000000;
-    padding: 20px;
+    box-shadow: 0px 4px 15px 0px $black;
 
-    &--border {
-        border-radius: $border-radius * 2;
-    }
-    &--padding {
-        padding: 10px;
-    }
-
-    .form-group {
-        width: 100%;
-
-        input,
-        button {
-            @include pxToEm(padding, 12);
-
-            width: 100%;
-            border-radius: $border-radius;
-            text-align: center;
-
-            max-height: 48px;
-        }
-
-        input {
-            @include font(16, 16, 700, #000);
-            border: 2px solid transparent;
-            outline: none;
-
-            &::placeholder {
-                @include font(16, 16, 700, #00000080);
-
-                text-transform: uppercase;
-                text-align: center;
-            }
+    @media (max-width: $mdx) {
+        &.auth-mobile-p {
+            padding: 0;
         }
     }
+
+    @media (min-width: $mdx_s) {
+        border-radius: $border-radius;
+
+        max-height: 95%;
+        margin: 0 auto;
+
+        .handle-back {
+            margin-top: 10px;
+        }
+    }
+
+    // background: rgba(30, 43, 89, 1);
 
     .btn {
-        &-login {
-            @include font(16, 16, 700, #fff);
+        @include font(16, 16, 700, $white);
+        text-transform: uppercase;
 
+        cursor: pointer;
+
+        &-login {
             background: linear-gradient(0deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)), linear-gradient(0deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.05));
 
             border: 2px solid #ffffff1a;
-
-            text-transform: uppercase;
         }
 
         &-change-password {
-            @include font(16, 16, 700, #fff);
-
             background: linear-gradient(0deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)), linear-gradient(0deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.05));
             border: 2px solid #ffffff1a;
-
-            text-transform: uppercase;
         }
 
         &-launch-setting {
@@ -68,7 +50,9 @@
             @include flexbox($alignItems: center, $justifyContent: center, $flow: row nowrap, $gap: 10px);
 
             width: 100%;
+            min-height: 48px;
             max-height: 48px;
+            margin-top: auto;
             margin-bottom: 20%;
 
             background: #283661;
@@ -76,31 +60,40 @@
             text-transform: uppercase;
             border-radius: $border-radius;
 
-            img {
-                width: 35px;
-                height: 35px;
+            .icon {
+                width: 30px;
+                height: 30px;
+
+                use {
+                    fill: $white;
+                    stroke: #283661;
+                    stroke-width: 4px;
+                    stroke-linecap: round;
+                    stroke-linejoin: round;
+                }
             }
 
             span {
-                @include font(16, 16, 700, #fff);
+                @include font(16, 16, 700, $white);
                 display: block;
             }
 
             @media (max-width: $mdx) and (orientation: landscape) {
-                margin-bottom: 0;
+                margin-bottom: 20px;
             }
         }
 
         &-send {
-            background: #55b63d;
-            border-color: #55b63d;
+            background: $green;
+            border-color: $green;
         }
 
         &-nav {
-            @include font(16, 16, 700, #fff);
+            @include font(16, 16, 700, $white);
             @include pxToEm(padding, 12);
 
             width: 100%;
+            min-height: 48px;
             max-height: 48px;
 
             background: #626b8b;
@@ -144,6 +137,10 @@
 
     .change-password {
         @include flexbox($alignItems: center, $justifyContent: center, $flow: column nowrap, $gap: 10px);
+        @include pxToEm(padding-top, 10);
+        @include pxToEm(padding-bottom, 10);
+
+        border-radius: $border-radius;
         width: 100%;
     }
 
@@ -153,5 +150,18 @@
         width: 100%;
         border-width: 1px;
         border-color: #8e95ac;
+    }
+
+    #code,
+    #login,
+    #password,
+    #old-password,
+    #new-password,
+    #confirm-password {
+        text-align: center;
+
+        &::placeholder {
+            text-align: center;
+        }
     }
 }

@@ -1,3 +1,181 @@
 .launch-setting {
-    background: #181c2c;
+    @include pxToEm(padding-top, 10);
+    @include pxToEm(padding-bottom, 15);
+
+    box-shadow: 0px 4px 15px 0px #000;
+
+    @media (min-width: $mdx_s) {
+        border-radius: $border-radius;
+
+        max-height: 95%;
+        margin: 0 auto;
+
+        overflow: hidden scroll;
+    }
+
+    .settings {
+        @include pxToEm(padding, 10 0 20);
+    }
+
+    label {
+        @include font(16, 16, 700, $white);
+        @include pxToEm(margin-bottom, 10);
+
+        display: block;
+        text-transform: uppercase;
+    }
+
+    input {
+        @include pxToEm(padding, 12);
+        @include font(16, 16, 700, $black);
+
+        width: 100%;
+        border-radius: $border-radius;
+
+        min-height: 48px;
+        max-height: 48px;
+        border: 2px solid transparent;
+        outline: none;
+
+        &::placeholder {
+            @include font(16, 16, 700, #00000080);
+
+            text-transform: uppercase;
+            text-align: center;
+        }
+    }
+
+    #language {
+        text-transform: uppercase;
+        text-align: center;
+    }
+
+    #upload {
+        max-height: 100%;
+        min-height: auto;
+    }
+
+    .log-out-timer {
+        &__text {
+            @include font(16, 16, 700, $black);
+        }
+    }
+
+    .swiper-block {
+        @include pxToEm(padding, 12);
+        @include flexbox($alignItems: center, $justifyContent: center);
+
+        position: relative;
+        background: $white;
+        border-radius: $border-radius;
+
+        width: 100%;
+        .swiper-wrapper {
+            text-align: center;
+        }
+
+        .swiper-btn {
+            position: relative;
+            background: #d9d9d9;
+
+            width: 27px;
+            min-width: 27px;
+            min-height: 27px;
+            max-height: 27px;
+            height: 100%;
+
+            border-radius: $border-radius;
+            border: 2px solid #cacaca;
+            z-index: 2;
+
+            .icon {
+                @include pxToEm(padding, 4);
+
+                width: 100%;
+                height: 100%;
+                max-width: inherit;
+                max-height: inherit;
+
+                object-fit: contain;
+                position: absolute;
+                inset: 0;
+                margin: auto;
+
+                use {
+                    stroke: $black;
+                    stroke-width: 7px;
+                    stroke-linecap: round;
+                    stroke-linejoin: round;
+                }
+            }
+
+            &-next {
+                transform: rotate(180deg);
+                transform-origin: center center;
+            }
+
+            &-disable {
+                pointer-events: none;
+
+                svg {
+                    opacity: 0.3;
+                }
+            }
+        }
+    }
+
+    .upload-overflow {
+        @include font(16, 16, 700, $white);
+        @include pxToEm(padding, 24);
+        @include flexbox($alignItems: center, $justifyContent: center, $flow: column nowrap, $gap: 5px);
+
+        position: relative;
+
+        background: #242837;
+        border: 2px solid #ffffff1a;
+        border-radius: $border-radius;
+
+        .icon {
+            width: 35px;
+            height: 35px;
+        }
+
+        p {
+            margin: 0;
+        }
+
+        .form-constrol {
+            position: absolute;
+            inset: 0;
+            margin: auto;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+        }
+    }
+
+    .btn {
+        @include pxToEm(padding, 12);
+        @include font(16, 16, 700, $white);
+
+        cursor: pointer;
+
+        width: 100%;
+        border-radius: $border-radius;
+        text-transform: uppercase;
+        text-align: center;
+
+        min-height: 48px;
+        max-height: 48px;
+
+        &-get-settings {
+            background: linear-gradient(0deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)), linear-gradient(0deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.05));
+            border: 2px solid #ffffff1a;
+        }
+
+        &-send {
+            background: linear-gradient(0deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)), linear-gradient(0deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.05));
+            border: 2px solid #ffffff1a;
+        }
+    }
 }

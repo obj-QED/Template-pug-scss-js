@@ -1,0 +1,11 @@
+//- Миксин для генерации элемента списка с изображением
+mixin account-nav(iconName, isActive = false)
+  .item(class=isActive ? 'active' : '')
+    svg.icon(class=iconName)
+      use(xlink:href=`/img/sprites/sprite.svg#${iconName}`)
+mixin account-balance-item(title, value, isActive = false)
+  - const itemClass = title.toLowerCase().replace(/\s/g, '-')
+
+  .item(class=`${itemClass}`, class=isActive ? 'active' : '')
+    .title= title
+    .value= value

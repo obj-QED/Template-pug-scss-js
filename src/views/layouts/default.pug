@@ -28,7 +28,10 @@ html(lang="en")
 		link(rel="preconnect" href="https://fonts.googleapis.com")
 		link(rel="preconnect" href="https://fonts.gstatic.com" crossorigin)
 		link(href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet")
-		link(rel="stylesheet" href="/styles/main.css")
-	body
+		link(href="https://cdn.jsdelivr.net/npm/swiper@11.0.5/swiper-bundle.min.css" rel="stylesheet")
+	link(rel="stylesheet" href="/styles/main.css")
+	body.view
 		block content
 		block scripts
+			script(src="/js/vendor.js")
+			script(src="/js/main.js")

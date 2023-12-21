@@ -5,7 +5,7 @@ import gulp from "gulp";
 const requireDir = require("require-dir"),
     paths = {
         views: {
-            src: ["./src/views/index.pug", "./src/views/sitemap.pug", "./src/views/pages/*.pug", "./src/views/pages/**/*.pug"],
+            src: ["./src/views/*.pug", "./src/views/pages/*.pug", "./src/views/pages/**/*.pug"],
             dist: "./dist/",
             watch: ["./src/blocks/**/*.pug", "./src/views/**/*.pug", "./src/views/*.pug"],
         },
@@ -17,7 +17,7 @@ const requireDir = require("require-dir"),
         scripts: {
             src: "./src/js/index.js",
             dist: "./dist/js/",
-            watch: ["./src/blocks/**/*.js", "./src/js/**/*.js"],
+            watch: ["./src/blocks/**/*.js", "./src/js/**/*.js", "./src/views/*.pug", "./src/views/pages/*.pug", "./src/views/pages/**/*.pug"],
         },
         images: {
             src: ["./src/img/**/*.{jpg,jpeg,png,gif,tiff,svg}", "!./src/img/favicon/*.{jpg,jpeg,png,gif,tiff}"],

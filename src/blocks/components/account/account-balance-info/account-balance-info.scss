@@ -1,0 +1,44 @@
+.account {
+    &-balance-info {
+        @include flexbox($alignItems: stretch, $justifyContent: space-between, $wrap: nowrap, $gap: 10px);
+        @include pxToEm(padding, 20 10);
+
+        margin-top: auto;
+        
+        background: rgba(17, 20, 32, 1);
+        box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.15);
+
+        .item {
+            @include pxToEm(padding, 12);
+
+            width: 100%;
+            max-width: calc(100% / 3 - 5px);
+            border-radius: $border-radius;
+
+            .title {
+                overflow: hidden;
+                display: -webkit-box;
+                -webkit-line-clamp: 1;
+                -webkit-box-orient: vertical;
+            }
+
+            .title {
+                @include font(16, 16, 700, $white);
+            }
+            .value {
+                @include font(16, 16, 500, $white);
+                word-wrap: break-word;
+            }
+        }
+
+        .total-in {
+            background: $green;
+        }
+        .total-out {
+            background: $red;
+        }
+        .profit {
+            background: $blue;
+        }
+    }
+}

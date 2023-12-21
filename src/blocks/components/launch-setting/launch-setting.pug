@@ -1,0 +1,92 @@
+.launch-setting.container
+  form.form.settings(action="#")
+    .form-group
+      label(for="language") language
+      input#language.form-control(type="language" placeholder="language" value="English" required)
+    hr
+    .form-group
+      label log out timer
+      .swiper-block
+        .swiper-btn.swiper-btn-prev
+          svg.icon
+            use(xlink:href="/img/sprites/sprite.svg#arrow")
+
+        .swiper.log-out-timer
+          .swiper-wrapper
+            .swiper-slide.log-out-timer__text 5 min
+            .swiper-slide.log-out-timer__text 10 min
+            .swiper-slide.log-out-timer__text 15 min
+        .swiper-btn.swiper-btn-next
+          svg.icon
+            use(xlink:href="/img/sprites/sprite.svg#arrow")
+    hr
+    .form-group
+      label(for="domain") DOMAIN QR
+      input#domain.form-control(type="text" required)
+    .form-group
+      label(for="ticket") TICKET NAME
+      input#ticket.form-control(type="text" required)
+    .form-group
+      button.btn.btn-get-settings(type="submit") GET SETTINGS
+    hr
+    .form-group
+      label(for="logo") LOGO PICTURE
+      .upload-overflow
+        input#upload.form-constrol(type="file" name="image")
+        img.icon(src="/img/svg/upload.svg" alt="back arrow")
+        p MAX SIZE 384X384
+    hr
+    .form-group__line
+      .form-group
+        label(for="hall") HALL ID
+        input#hall.form-control(type="text" required)
+      .form-group
+        label(for="api-url") API URL
+        input#api-url.form-control(type="password" value="4444" required)
+    .form-group
+      label(for="mac-url") MAC ADDRESS
+      input#mac-url.form-control(type="text" required)
+    hr
+    .form-group
+      .form-check
+        input(type="checkbox" checked name="terminals" id="terminals" data-image="/img/svg/checkbox.svg")
+        label(for="terminals")
+        span CAN DEACTIVATE TERMINALS
+    .form-group__line
+      .form-group
+        .form-check
+          input(type="checkbox" checked name="promo" id="promo" data-image="/img/svg/checkbox.svg")
+          label(for="promo")
+          span PROMO
+      .form-group
+        .form-check
+          input(type="checkbox" checked name="panic" id="panic" data-image="/img/svg/checkbox.svg")
+          label(for="panic")
+          span PANIC
+    hr
+    .form-group.form-select
+      select(name="select" id="select")
+        option(value="option1") CREATE FAST
+        option(value="option2") CREATE FAST 2
+        option(value="option3") CREATE FAST 3
+        option(value="option4") CREATE FAST 4
+
+    hr
+    .form-group
+      button.btn.btn-send
+        span Save
+
+
+block script
+  script(src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js")
+
+  script.
+    var swiper = new Swiper(".log-out-timer", {
+      slidesPerView: 1,
+      loop: true,
+      navigation: {
+        disabledClass: 'swiper-btn-disable',
+        nextEl: ".swiper-btn.swiper-btn-next",
+        prevEl: ".swiper-btn.swiper-btn-prev",
+      },
+      });

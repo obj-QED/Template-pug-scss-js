@@ -1,0 +1,121 @@
+.account-search {
+    .form-search {
+        @include flexbox($alignItems: center, $justifyContent: center, $flow: column nowrap, $gap: 10px);
+
+        .search-input {
+            input {
+                @include pxToEm(padding-right, 12 + (12 * 2));
+            }
+            .icon {
+                opacity: 0.5;
+            }
+
+            &-focus {
+                .icon {
+                    opacity: 1;
+                }
+                input {
+                    @include pxToEm(padding-right, 12 + (30 * 2) + (12 * 2));
+                }
+            }
+        }
+    }
+
+    .search-input {
+        position: relative;
+
+        &_btn {
+            @include flexbox($flow: row nowrap, $alignItems: center, $gap: 10px);
+            @include pxToEm(right, 12);
+
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+
+            width: max-content;
+            height: 100%;
+
+            .icon {
+                @include pxToEm(padding, 4);
+
+                cursor: pointer;
+
+                width: 30px;
+                height: 100%;
+
+                &.search,
+                &.close {
+                    use {
+                        stroke-width: 5px;
+                        stroke-linecap: round;
+                        stroke-linejoin: round;
+                        fill: transparent;
+                        stroke: $black;
+                    }
+                }
+            }
+
+            .border-vertical {
+                width: 3px;
+                height: 100%;
+                background: $black;
+            }
+        }
+    }
+
+    .btn {
+        @include pxToEm(padding, 12);
+        @include font(16, 16, 700, $white);
+
+        cursor: pointer;
+
+        width: 100%;
+        border-radius: $border-radius;
+        text-transform: uppercase;
+        text-align: center;
+
+        min-height: 48px;
+        max-height: 48px;
+
+        &-qr {
+            background: rgba(52, 48, 204, 1);
+        }
+    }
+
+    .search-result {
+        .item {
+            @include font(22, 22, 700, $white);
+            @include pxToEm(padding, 8 12);
+
+            position: relative;
+            border-radius: $border-radius;
+
+            background: linear-gradient(0deg, #28376d, #28376d), linear-gradient(0deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1));
+            border: 2px solid rgba(255, 255, 255, 0.1);
+
+            .name {
+                text-transform: uppercase;
+            }
+
+            .icon {
+                @include pxToEm(right, 4);
+                @include pxToEm(padding, 4);
+
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%) rotate(180deg);
+                transform-origin: center;
+
+                width: 40px;
+                height: 100%;
+
+                pointer-events: none;
+
+                use {
+                    stroke: #fff;
+                    stroke-width: 4px;
+                }
+            }
+        }
+    }
+}
