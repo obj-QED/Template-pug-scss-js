@@ -13,6 +13,6 @@ block content
       .account-navigation
         each iconName, index in iconNames
           +account-nav(iconName, index === activeIndex)
-      .account-content
+      .account-content(style="background: transparent")
         include ../../../blocks/components/account/account-search/account-search
       include ../../../blocks/components/account/account-balance-info/account-balance-info

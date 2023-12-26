@@ -55,17 +55,23 @@ a {
 }
 
 .view {
-    @include flexbox($alignItems: center, $justifyContent: center, $flow: column nowrap);
+    @include flexbox($alignItems: center, $justifyContent: flex-start, $flow: column nowrap);
 
     background: #181c2c;
     color: $white;
 
-    height: 100vh;
-    min-height: calc(var(--vh, 1vh) * 100);
+    width: 100%;
+    height: calc(var(--vh, 1vh) * 100);
+    min-height: 100%;
 
     @media (max-width: $mdx_s) and (orientation: landscape) {
         height: 100vh;
     }
+}
+
+.sitemap {
+    width: 100%;
+    height: 100%;
 }
 
 .handle-back {

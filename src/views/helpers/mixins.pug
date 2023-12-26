@@ -9,3 +9,21 @@ mixin account-balance-item(title, value, isActive = false)
   .item(class=`${itemClass}`, class=isActive ? 'active' : '')
     .title= title
     .value= value
+
+mixin search-result-full
+  .item.item-full
+    .data-account
+      .login 841354
+      .value 8990.50 $
+    .data-user
+      .name 
+        span VALERA
+        span LOBANOVSKIY
+      .online 
+        span ONLINE IN
+        span JOKER'S JEWELS
+
+mixin pagination(totalPages)
+  each i in Array.from({ length: totalPages }, (_, index) => index + 1)
+    - const isActive = i === 1
+    .pagination-item(id=`el-${i}` class=`el-${i} ${isActive ? 'active' : ''}`)= i

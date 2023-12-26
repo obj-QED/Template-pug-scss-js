@@ -13,6 +13,6 @@ block content
       .account-navigation
         each iconName, index in iconNames
           +account-nav(iconName, index === activeIndex)
-      .account-content(style="height: auto")
+      .account-content(style="height: auto; background: transparent")
         include ../../../blocks/components/launch-setting/launch-setting.pug
         include ../../../blocks/components/account/account-balance-info/account-balance-info

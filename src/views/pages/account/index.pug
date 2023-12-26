@@ -13,6 +13,11 @@ block content
       .account-navigation
         each iconName, index in iconNames
           +account-nav(iconName, index === activeIndex)
+      .handle-back
+        button.btn.btn-back.btn-back__change-password.container
+          svg.icon
+            use(xlink:href="/img/sprites/sprite.svg#arrow")
+          span 986657
       .account-content
         include ../../../blocks/components/account/account-home/account-home
       include ../../../blocks/components/account/account-balance-info/account-balance-info
