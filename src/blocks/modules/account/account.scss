@@ -1,0 +1,285 @@
+.account {
+    @include flexbox($flow: column nowrap);
+
+    width: 100%;
+    height: 100%;
+
+    @media (max-width: 992px) {
+        padding: 0;
+    }
+
+    .handle-back {
+        background: #171c2c;
+    }
+
+    &-navigation {
+        @include flexbox($alignItems: center, $justifyContent: space-between);
+
+        border-bottom: 1px solid #8b8d96;
+        z-index: 25;
+
+        .item {
+            @include flexbox($alignItems: center, $justifyContent: center);
+            @include pxToEm(padding, 10 0);
+
+            cursor: pointer;
+            background: #181c2c;
+            width: 100%;
+
+            &.active {
+                background: rgba(30, 43, 89, 1);
+            }
+        }
+
+        .icon {
+            padding: 5px;
+            width: 35px;
+            height: 35px;
+        }
+
+        .profile {
+            use {
+                fill: $white;
+            }
+        }
+
+        .search {
+            use {
+                stroke-width: 5px;
+                stroke-linecap: round;
+                stroke-linejoin: round;
+                stroke: $white;
+                fill: transparent;
+            }
+        }
+        .calendar {
+            use {
+                fill: $white;
+            }
+        }
+
+        .settings {
+            use {
+                fill: #181c2c;
+                stroke: #fff;
+                stroke-width: 4px;
+                stroke-linecap: round;
+                stroke-linejoin: round;
+            }
+        }
+
+        .notice {
+            use {
+                fill: $white;
+            }
+        }
+    }
+
+    &-content {
+        position: relative;
+
+        width: 100%;
+        height: 100%;
+        border-radius: $border-radius;
+        background: #1e2b59;
+
+        @media (max-width: $mdx_s) and (orientation: landscape) {
+            // height: auto;
+        }
+    }
+
+    .form {
+        @include pxToEm(padding, 10 0);
+
+        width: 100%;
+
+        &-account {
+            // padding-bottom: 20%;
+        }
+
+        .name {
+            position: relative;
+
+            &:before {
+                content: "";
+                pointer-events: none;
+                position: absolute;
+                top: 50%;
+                @include pxToEm(right, 12);
+                transform: translateY(-50%);
+                width: 30px;
+                height: 30px;
+                background: url("../../../img/svg/edit-fill.svg") no-repeat center / contain;
+            }
+
+            input {
+                @include pxToEm(padding-right, 30 + 12);
+
+                text-transform: uppercase;
+            }
+        }
+
+        .change-password {
+            &--lock {
+                input {
+                    @include pxToEm(padding-right, 30 + 12);
+
+                    position: relative;
+                    cursor: not-allowed;
+
+                    background: #283661;
+                    border: 2px solid #ffffff1a;
+                    color: #fff;
+
+                    &::placeholder {
+                        color: #fff;
+                    }
+
+                    &:before {
+                        content: "";
+                        pointer-events: none;
+                        position: absolute;
+                        top: 50%;
+                        @include pxToEm(right, 12);
+                        transform: translateY(-50%);
+                        width: 30px;
+                        height: 30px;
+                        background: url("../../../img/svg/locker.svg") no-repeat center / contain;
+                    }
+                }
+            }
+        }
+
+        .balance {
+            input {
+                @include font(26, 26, 700, $white);
+                @include pxToEm(padding, 8 12);
+
+                background: #34416a;
+                border: 2px solid transparent;
+                text-align: center;
+                max-height: unset;
+
+                &::placeholder {
+                    @include font(26, 26, 700, $white);
+                    text-align: center;
+                }
+            }
+        }
+
+        .amount {
+            input {
+                @include font(26, 26, 700, $black);
+                @include pxToEm(padding, 8 12);
+
+                text-align: center;
+                text-transform: uppercase;
+
+                &::placeholder {
+                    @include font(26, 26, 700, $black);
+                    text-align: center;
+                }
+            }
+        }
+
+        .btn {
+            @include pxToEm(padding, 0);
+
+            cursor: pointer;
+
+            border-color: transparent;
+            text-transform: uppercase;
+            max-height: unset;
+            height: 100%;
+
+            span {
+                @include pxToEm(padding, 8 12);
+                @include font(16, 16, 700, $white);
+                display: block;
+            }
+
+            &-cash-in {
+                background: $green;
+            }
+            &-cash-out {
+                background: $red;
+            }
+        }
+
+        &-check {
+            span {
+                border-bottom: 1px solid $white;
+            }
+        }
+    }
+
+    .launch-setting {
+        box-shadow: none;
+
+        .form.settings {
+            padding: 0;
+        }
+    }
+
+    .loading-print {
+        @include flexbox($alignItems: center, $justifyContent: center, $flow: column nowrap, $gap: 15px);
+        @include pxToEm(padding, 10);
+
+        position: fixed;
+        inset: 0;
+        margin: auto;
+        z-index: 15;
+        background: rgba(24, 28, 44, 0.95);
+
+        .title {
+            @include font(22, 22, 700, $white);
+
+            text-transform: uppercase;
+        }
+
+        .preloader {
+            @include flexbox($alignItems: center, $justifyContent: center, $flow: column-reverse nowrap, $gap: 10px);
+
+            p {
+                @include font(22, 22, 700, $white);
+
+                text-transform: uppercase;
+                margin: 0;
+            }
+        }
+
+        .btn {
+            @include flexbox($alignItems: center, $justifyContent: center);
+            max-width: max(35%, min(420px, 100%));
+
+            &-done {
+                background: $green;
+            }
+        }
+    }
+
+    .notification {
+        @include flexbox($alignItems: center, $justifyContent: center, $flow: column nowrap, $gap: 15px);
+        min-height: 40vh;
+        height: 100%;
+
+        &-wrapper {
+            border-radius: $border-radius;
+            background: $red;
+            padding: 10vh 0;
+        }
+
+        .icon {
+            display: block;
+            margin: auto;
+            
+
+            width: 200px;
+            height: 200px;
+
+            use {
+                fill: $white;
+            }
+        }
+    }
+}

@@ -1,0 +1,191 @@
+.account-search {
+    @include flexbox($flow: column nowrap, $justifyContent: flex-start, $alignItems: flex-start, $gap: 10px);
+
+    width: 100%;
+    height: 100%;
+
+    border-radius: $border-radius;
+
+    .form-search {
+        @include flexbox($alignItems: center, $justifyContent: center, $flow: column nowrap, $gap: 10px);
+
+        .search-input {
+            input {
+                @include pxToEm(padding-right, 12 + (12 * 2));
+            }
+            .icon {
+                opacity: 0.5;
+            }
+
+            &-focus {
+                .icon {
+                    opacity: 1;
+                }
+                input {
+                    @include pxToEm(padding-right, 12 + (30 * 2) + (12 * 2));
+                }
+            }
+        }
+    }
+
+    .search-input {
+        position: relative;
+
+        &_btn {
+            @include flexbox($flow: row nowrap, $alignItems: center, $gap: 10px);
+            @include pxToEm(right, 12);
+
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+
+            width: max-content;
+            height: 100%;
+
+            .icon {
+                @include pxToEm(padding, 4);
+
+                cursor: pointer;
+
+                width: 30px;
+                height: 100%;
+
+                &.search,
+                &.close {
+                    use {
+                        stroke-width: 5px;
+                        stroke-linecap: round;
+                        stroke-linejoin: round;
+                        fill: transparent;
+                        stroke: $black;
+                    }
+                }
+            }
+
+            .border-vertical {
+                width: 3px;
+                height: 100%;
+                background: $black;
+            }
+        }
+    }
+
+    .filter {
+        @include flexbox($flow: row, $alignItems: center, $justifyContent: flex-start, $gap: 10px);
+        width: 100%;
+
+        &-item {
+            @include pxToEm(padding, 6 12);
+
+            background: transparent;
+            border: 3px solid rgba(255, 255, 255, 1);
+            box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.25);
+            border-radius: 20px;
+            text-transform: uppercase;
+
+            span {
+                @include font(16, 16, 700, $white);
+            }
+
+            &.active {
+                background: $white;
+
+                span {
+                    color: rgba(52, 69, 131, 1);
+                }
+            }
+        }
+    }
+
+    .search-result {
+        width: 100%;
+        margin-bottom: auto;
+
+        @include flexbox($flow: column nowrap, $alignItems: flex-start, $justifyContent: flex-start, $gap: 10px);
+        @include pxToEm(padding-bottom, 10);
+
+        .item {
+            @include font(22, 22, 700, $white);
+            @include pxToEm(padding, 8 12);
+
+            width: 100%;
+
+            position: relative;
+            border-radius: $border-radius;
+
+            background: linear-gradient(0deg, #28376d, #28376d), linear-gradient(0deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1));
+            border: 2px solid rgba(255, 255, 255, 0.1);
+
+            .name {
+                text-transform: uppercase;
+            }
+
+            .value {
+                text-transform: uppercase;
+            }
+
+            .icon {
+                @include pxToEm(right, 4);
+                @include pxToEm(padding, 4);
+
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%) rotate(180deg);
+                transform-origin: center;
+
+                width: 40px;
+                height: 100%;
+
+                pointer-events: none;
+
+                use {
+                    stroke: #fff;
+                    stroke-width: 4px;
+                }
+            }
+        }
+
+        .item-full {
+            padding: 0;
+            // box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.55);
+
+            .name {
+                @include flexbox($flow: column nowrap, $justifyContent: flex-start, $gap: 2px);
+            }
+
+            .login {
+                text-decoration: underline;
+            }
+            .online {
+                @include flexbox($flow: column nowrap, $alignItems: flex-end, $justifyContent: flex-start, $gap: 2px);
+                span:nth-child(2) {
+                    font-weight: 900;
+                }
+            }
+            .data-account {
+                @include flexbox($flow: row nowrap, $alignItems: center, $justifyContent: space-between, $gap: 10px);
+                @include pxToEm(padding, 12 12);
+                @include font(18, 18, 700, $white);
+            }
+
+            .data-user {
+                @include flexbox($flow: row nowrap, $alignItems: center, $justifyContent: space-between, $gap: 10px);
+                @include pxToEm(padding, 8 12);
+                @include font(16, 16, 700, $white);
+
+                border-bottom-left-radius: calc($border-radius - 2px);
+                border-bottom-right-radius: calc($border-radius - 2px);
+                background: rgba(85, 182, 61, 1);
+            }
+        }
+    }
+
+    .swiper-block {
+        width: 100%;
+        height: 100%;
+
+        .swiper-slide {
+            @include flexbox($flow: column nowrap, $gap: 10px);
+        }
+    }
+}

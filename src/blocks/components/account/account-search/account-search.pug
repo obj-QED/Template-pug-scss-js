@@ -1,0 +1,25 @@
+.account-search
+  .container
+    .form.form-search
+      .form-group.search-input.search-input-focus
+        input#name.form-control(type="text" placeholder="SEARCH LOGIN" value="841354" required)
+        .search-input_btn
+          svg.icon.close
+            use(xlink:href="/img/sprites/sprite.svg#close")
+          .border-vertical
+          svg.icon.search
+            use(xlink:href="/img/sprites/sprite.svg#search")
+      .form-group.search-input
+        input#name.form-control(type="text" placeholder="SEARCH LOGIN" required)
+        .search-input_btn
+          svg.icon.search
+            use(xlink:href="/img/sprites/sprite.svg#search")
+      .form-group
+        button.btn.btn-qr scan-qr
+      hr
+    .search-result
+      .item
+        .login 841354
+        .name alexander
+        svg.icon.search
+          use(xlink:href="/img/sprites/sprite.svg#arrow")

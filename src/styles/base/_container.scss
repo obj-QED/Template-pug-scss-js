@@ -1,0 +1,12 @@
+.container {
+    @include pxToEm(padding, 0 10);
+    margin: 0 auto;
+    width: 100%;
+    
+    position: relative;
+
+    @media (min-width: $mdx_s) {
+        margin: 0 auto;
+        max-width: 720px;
+    }
+}

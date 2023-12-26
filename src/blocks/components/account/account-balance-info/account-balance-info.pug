@@ -1,0 +1,6 @@
+.account-balance-info
+  - const items = [{ title: 'TOTAL IN', value: '999999.99' },{ title: 'TOTAL OUT', value: '0.00' },{ title: 'PROFIT', value: '0.00' }]
+  - const activeIndexItems = 1;
+
+  each item, index in items
+    +account-balance-item(item.title, item.value, index === activeIndexItems)

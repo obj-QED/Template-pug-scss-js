@@ -1,0 +1,96 @@
+.account {
+    &-balance-info {
+        @include flexbox($alignItems: stretch, $justifyContent: space-between, $wrap: nowrap, $gap: 10px);
+        @include pxToEm(padding, 20 10);
+
+        margin-top: auto;
+
+        background: rgba(17, 20, 32, 1);
+        box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.15);
+        
+        z-index: 25;
+
+        .item {
+            @include pxToEm(padding, 12);
+
+            width: 100%;
+            max-width: calc(100% / 3 - 5px);
+            border-radius: $border-radius;
+
+            .title {
+                overflow: hidden;
+                display: -webkit-box;
+                -webkit-line-clamp: 1;
+                -webkit-box-orient: vertical;
+            }
+
+            .title {
+                @include font(16, 16, 700, $white);
+            }
+            .value {
+                @include font(16, 16, 500, $white);
+                word-wrap: break-word;
+            }
+        }
+
+        .total-in {
+            background: $green;
+        }
+        .total-out {
+            background: $red;
+        }
+        .profit {
+            background: $blue;
+        }
+    }
+
+    .btn-group {
+        @include flexbox($flow: column nowrap, $alignItems: center, $justifyContent: flex-start, $gap: 15px);
+        @include pxToEm(padding, 15 10);
+
+        background: rgba(24, 28, 44, 1);
+    }
+
+    .btn {
+        @include pxToEm(padding, 12);
+        @include font(16, 16, 700, $white);
+
+        cursor: pointer;
+
+        width: 100%;
+        border-radius: $border-radius;
+        text-transform: uppercase;
+        text-align: center;
+
+        min-height: 48px;
+        max-height: 48px;
+
+        &-qr {
+            background: rgba(52, 48, 204, 1);
+        }
+
+        &-hall-balance {
+            @include flexbox($alignItems: center, $justifyContent: space-between, $gap: 10px);
+
+            text-align: left;
+            background: linear-gradient(0deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)), linear-gradient(0deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.05));
+            border: 3px solid rgba(255, 255, 255, 0.1);
+        }
+
+        &-create-terminal {
+            @include flexbox($alignItems: center, $justifyContent: center, $gap: 10px);
+
+            background: rgba(85, 182, 61, 1);
+            color: $white;
+
+            svg {
+                width: 30px;
+                height: 30px;
+
+                use {
+                    fill: $white;
+                }
+            }
+        }
+    }
+}

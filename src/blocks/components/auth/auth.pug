@@ -1,0 +1,10 @@
+.auth.container
+  form.login(action="#")
+    .form-group
+      input#code.form-control(type="number" placeholder="PIN CODE", required)
+    .form-group
+      button.btn.btn-login(type="submit") log in
+  button.btn.btn-launch-setting
+    svg.icon
+      use(xlink:href='/img/sprites/sprite.svg#settings')
+    span LAUNCH SETTINGS

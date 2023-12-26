@@ -1,4 +1,0 @@
-@function rem($px) {
-  // eslint-disable-next-line no-magic-numbers
-  @return ($px / 16) + (rem);
-}

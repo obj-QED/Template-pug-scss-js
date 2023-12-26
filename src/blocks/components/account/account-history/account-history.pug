@@ -1,0 +1,77 @@
+.transaction-history
+  .container
+    form.form.form-history
+      .form-group__line
+        .form-group
+          button.btn.btn-save
+            span
+              svg.icon
+                use(xlink:href="/img/sprites/sprite.svg#save")
+              | Save 
+        .form-group
+          button.btn.btn-reset
+            span 
+              svg.icon
+                use(xlink:href="/img/sprites/sprite.svg#reset")
+              | Reset
+      hr
+      .form-group
+        label(for="history-from" class="mb-0") FROM
+      .form-group__line
+        .form-group
+          input.form-group__input(type="date" id="date" name="date")
+        .form-group
+          input.form-group__input(type="date" id="date" name="date")
+      .form-group
+        label(for="history-to" class="mb-0") To
+      .form-group__line
+        .form-group
+          input.form-group__input(type="date" id="date" name="date")
+        .form-group
+          input.form-group__input(type="date" id="date" name="date")
+      hr
+      .form-group__line
+        button.btn.btn-date
+          span 1h
+        button.btn.btn-date
+          span 8h
+        button.btn.btn-date
+          span 12h
+        button.btn.btn-date
+          span 24h
+        button.btn.btn-date
+          span 7d
+      .form-group
+        button.btn.btn-search
+          span
+            svg.icon
+              use(xlink:href="/img/sprites/sprite.svg#search")
+            | search
+  .transaction-history-result
+    .container
+      form.form
+        .form-group__line
+          .form-group.log-out-timer
+            .swiper-block
+              .swiper-btn.swiper-btn-prev
+                svg.icon
+                  use(xlink:href="/img/sprites/sprite.svg#arrow")
+
+              .swiper.log-out-timer-swiper
+                .swiper-wrapper
+                  .swiper-slide.log-out-timer__text 5 min
+                  .swiper-slide.log-out-timer__text 10 min
+                  .swiper-slide.log-out-timer__text 15 min
+              .swiper-btn.swiper-btn-next
+                svg.icon
+                  use(xlink:href="/img/sprites/sprite.svg#arrow")
+          .form-group
+            button.btn.btn-save
+              span
+                svg.icon
+                  use(xlink:href="/img/sprites/sprite.svg#print")
+                | print
+      hr
+      .transaction-history-table
+        +transaction-history-table
+        include ../../../modules/pagination/pagination

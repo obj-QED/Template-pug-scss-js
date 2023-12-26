@@ -1,0 +1,36 @@
+extends ../../layouts/default
+include ../../helpers/mixins
+
+block variables
+  - const title = "History Print Done"
+
+block content
+  .account.container
+    - const iconNames = ['profile', 'search', 'calendar', 'settings', 'notice'];
+    - const activeIndex = 1; 
+
+
+      .account-navigation
+        each iconName, index in iconNames
+          +account-nav(iconName, index === activeIndex)
+      .account-content(style="background: transparent; height: auto")
+        include ../../../blocks/components/account/account-history/account-history
+        .loading-print
+          .title report printed
+          .btn.btn-done
+            span done
+      include ../../../blocks/components/account/account-balance-info/account-balance-info
+
+  block script
+    script(src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js")
+
+    script.
+      var swiper = new Swiper(".log-out-timer-swiper", {
+        slidesPerView: 1,
+        loop: true,
+        navigation: {
+          disabledClass: 'swiper-btn-disable',
+          nextEl: ".swiper-btn.swiper-btn-next",
+          prevEl: ".swiper-btn.swiper-btn-prev",
+        },
+        });

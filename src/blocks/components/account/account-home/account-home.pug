@@ -1,0 +1,24 @@
+.container(style="background: rgb(30, 43, 89);border-top-left-radius: 5px; border-top-right-radius: 5px; height: 100%;")
+  form.form.form-account(action="#")
+    .form-group.name
+      input#name.form-control(type="text" placeholder="name" value="alexander" required)
+    .form-group.change-password.change-password--lock
+      input#password.form-control(type="password" placeholder="change password" required)
+    hr
+    .form-group.balance
+      input#balance.form-control(type="text" placeholder="balance" value="2314.99 $" required)
+    hr
+    .form-group.amount
+      input#amount.form-control(type="text" placeholder="balance" value="0.00 $" required)
+    .form-group__line(style="align-items: stretch; flex-wrap: nowrap;")
+      .form-group
+        button.btn.btn-cash-in
+          span cash in
+      .form-group
+        button.btn.btn-cash-out
+          span cash out
+    .form-group
+      .form-check(style="justify-content: center")
+        input(type="checkbox" checked name="terminals" id="terminals" data-image="/img/svg/checkbox.svg")
+        label(for="terminals")
+        span AUTOPRINT

@@ -1,0 +1,13 @@
+.account.container
+
+  - const iconNames = ['profile', 'search', 'calendar', 'settings', 'notice'];
+  - const activeIndex = 0; 
+
+
+  .account-navigation
+    each iconName, index in iconNames
+      +account-nav(iconName, index === activeIndex)
+
+  .account-content
+    include ../../components/account/account-home/account-home
+  include ../../components/account/account-balance-info/account-balance-info

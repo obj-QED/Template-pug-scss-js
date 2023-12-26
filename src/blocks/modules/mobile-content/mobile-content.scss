@@ -1,0 +1,16 @@
+.mobile-content {
+    background: #181c2c;
+
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    @media (min-width: $mdx_s) {
+        display: none;
+    }
+}
