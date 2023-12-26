@@ -193,7 +193,7 @@
 
             span {
                 @include pxToEm(padding, 8 12);
-                @include font(26, 26, 700, $white);
+                @include font(16, 16, 700, $white);
                 display: block;
             }
 

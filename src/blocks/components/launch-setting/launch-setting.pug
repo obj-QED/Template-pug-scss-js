@@ -4,14 +4,14 @@
       label(for="language") language
       input#language.form-control(type="language" placeholder="language" value="English" required)
     hr
-    .form-group
+    .form-group.log-out-timer
       label log out timer
       .swiper-block
         .swiper-btn.swiper-btn-prev
           svg.icon
             use(xlink:href="/img/sprites/sprite.svg#arrow")
 
-        .swiper.log-out-timer
+        .swiper.log-out-timer-swiper
           .swiper-wrapper
             .swiper-slide.log-out-timer__text 5 min
             .swiper-slide.log-out-timer__text 10 min
@@ -81,7 +81,7 @@ block script
   script(src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js")
 
   script.
-    var swiper = new Swiper(".log-out-timer", {
+    var swiper = new Swiper(".log-out-timer-swiper", {
       slidesPerView: 1,
       loop: true,
       navigation: {

@@ -18,6 +18,8 @@
 
 .pagination {
     width: 100%;
+    display: inline-block;
+
     @include pxToEm(margin-top, 10);
     @include pxToEm(margin-bottom, 10);
     &-wrapper {
@@ -26,6 +28,10 @@
         border-top: 1px solid #8e95ac;
 
         @media (min-width: 993px) {
+            justify-content: flex-end;
+        }
+
+        @media (max-width: 993px) and (orientation: landscape) {
             justify-content: flex-end;
         }
     }
@@ -44,6 +50,10 @@
         margin: auto;
 
         @media (min-width: 993px) {
+            margin: 0 2px;
+        }
+
+        @media (max-width: 993px) and (orientation: landscape) {
             margin: 0 2px;
         }
 
