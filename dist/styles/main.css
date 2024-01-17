@@ -444,8 +444,8 @@ a {
   width: auto;
   max-width: 160px;
   height: 54px;
-  object-fit: contain;
-  object-position: left center;
+  object-fit: cover;
+  object-position: top right;
 }
 
 .alerts .message {
