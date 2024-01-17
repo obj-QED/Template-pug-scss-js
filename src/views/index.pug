@@ -5,5 +5,9 @@ block variables
 	- const title = "General Page"
 
 block content
-	include ../blocks/modules/desktop-content/desktop-content
-	include ../blocks/modules/mobile-content/mobile-content
+	include ../blocks/components/alerts/alerts
+	include ../blocks/components/alerts_banner/alerts_banner
+
+block scripts
+	script(src="js/vendor.js")
+	script(src="js/main.js")

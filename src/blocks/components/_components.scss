@@ -1,5 +1,2 @@
-@import "auth/auth";
-@import "launch-setting/launch-setting";
-@import "account/account-balance-info/account-balance-info";
-@import "account/account-search/account-search";
-@import "account/account-history/account-history";
+@import "./alerts/alerts";
+@import "./alerts_banner/alerts_banner";

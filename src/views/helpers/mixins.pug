@@ -1,45 +1,13 @@
-//- Миксин для генерации элемента списка с изображением
-mixin account-nav(iconName, isActive = false)
-  .item(class=isActive ? 'active' : '')
-    svg.icon(class=iconName)
-      use(xlink:href=`/img/sprites/sprite.svg#${iconName}`)
-mixin account-balance-item(title, value, isActive = false)
-  - const itemClass = title.toLowerCase().replace(/\s/g, '-')
+//- Alerts text
 
-  .item(class=`${itemClass}`, class=isActive ? 'active' : '')
-    .title= title
-    .value= value
+mixin text(content, format, color)
+  if format === 'bold'
+    strong(class=color ? `color-${color}` : '')= content
+  else if format
+    span(class=color ? `color-${color}` : '')= format(content)
+  else
+    span(class=color ? `color-${color}` : '')= content
 
-mixin search-result-full
-  .item.item-full
-    .data-account
-      .login 841354
-      .value 8990.50 $
-    .data-user
-      .name 
-        span VALERA
-        span LOBANOVSKIY
-      .online 
-        span ONLINE IN
-        span JOKER'S JEWELS
-
-mixin pagination(totalPages)
-  each i in Array.from({ length: totalPages }, (_, index) => index + 1)
-    - const isActive = i === 1
-    .pagination-item(id=`el-${i}` class=`el-${i} ${isActive ? 'active' : ''}`)= i
-
-mixin transaction-history-table
-  table
-    thead
-      tr
-        th Login
-        th TOTAL IN
-        th Total Out
-        th Profit
-    tbody
-      - for (let i = 1; i <= 15; i++)
-        tr
-          td User#{i}
-          td #{Math.floor(Math.random() * 1000)} $
-          td #{Math.floor(Math.random() * 1000)} $
-          td #{Math.floor(Math.random() * 100)} $
+mixin alertItem(className)
+  li.item(class=className)
+    block

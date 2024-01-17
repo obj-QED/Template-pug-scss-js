@@ -1,0 +1,161 @@
+.alerts {
+    @include flexbox($alignItems: center, $justifyContent: space-between);
+
+    position: relative;
+    background: linear-gradient(180deg, #101010 0%, #0f0f0f 100%);
+
+    z-index: 1;
+    
+    &.hidden {
+        display: none;
+    }
+
+    .image {
+        pointer-events: none;
+        width: auto;
+        max-width: 160px;
+        height: 54px;
+        object-fit: contain;
+        object-position: left center;
+
+        @media (max-width: $lg) {
+            object-fit: cover;
+            object-position: center right;
+        }
+
+        @media (max-width: $xs) {
+            max-width: 30%;
+        }
+    }
+
+    .message {
+        @include pxToEm(padding, 17 0);
+
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .list {
+        @include flexbox($alignItems: center, $justifyContent: center, $gap: 12px);
+
+        margin: 0;
+        padding: 0;
+
+        li {
+            @include pxToEm(margin-left, 17);
+            color: rgb(255 255 255 / 15%);
+        }
+
+        .item {
+            @include font(16, 14, 400, rgb(255 255 255));
+            line-height: 20px;
+            letter-spacing: 0.003em;
+        }
+
+        .color-orange {
+            color: var(--orange);
+        }
+
+        @media (min-width: calc($lg + 1px)) {
+            .use-code {
+                span {
+                    &:last-child {
+                        display: none;
+                    }
+                }
+            }
+        }
+
+        @media (max-width: $lg) {
+            .date {
+                span {
+                    display: none;
+                }
+            }
+        }
+
+        @media (max-width: $sm) {
+            .use-code {
+                display: none;
+            }
+        }
+    }
+
+    .actions {
+        @include flexbox($alignItems: center, $gap: 14px);
+        @include pxToEm(padding-right, 24);
+
+        @media (max-width: $lg) {
+            @include pxToEm(padding-right, 22);
+        }
+
+        @media (max-width: $sm) {
+            display: none;
+        }
+
+        .button {
+            @include pxToEm(padding, 10 14);
+
+            background: linear-gradient(90deg, rgba(255, 255, 255, 0.5) 1.21%, rgba(255, 255, 255, 0) 42.51%), #0b0b0b;
+            backdrop-filter: blur(15px);
+
+            span {
+                @include font(16, 14, 500);
+
+                background: linear-gradient(90deg, rgba(255, 255, 255, 0.5) 1.21%, rgba(255, 255, 255, 0) 42.51%), #0b0b0b;
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                text-fill-color: transparent;
+
+                text-shadow: 0px 0px 30px rgba(102, 204, 255, 0.2);
+            }
+
+            &--border {
+                border-radius: 100px;
+            }
+
+            &--bg {
+                background: #ffffff;
+            }
+        }
+    }
+
+    .close,
+    .next {
+        @include pxToEm(padding, 5);
+
+        cursor: pointer;
+
+        width: 24px;
+        height: 24px;
+
+        svg {
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    .close {
+        @media (max-width: $lg) {
+            display: none;
+        }
+
+        svg {
+            use {
+                fill: rgb(255 255 255 / 30%);
+            }
+        }
+    }
+
+    .next {
+        @media (min-width: $sm) {
+            display: none;
+        }
+        svg {
+            use {
+                fill: rgba(217 217 217 / 40%);
+            }
+        }
+    }
+}

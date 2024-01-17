@@ -1,5 +1,5 @@
 @use "sass:math";
-$maxWidth: 1280;
+$maxWidth: 1728;
 
 @mixin font($size, $sizeMobile: null, $weight: 400, $color: null) {
     @include size($size, $sizeMobile);

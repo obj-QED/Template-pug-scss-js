@@ -1,0 +1,116 @@
+.alerts-banner {
+    @include flexbox($alignItems: center, $justifyContent: flex-end, $flow: row);
+    @include pxToEm(padding, 15);
+
+    position: absolute;
+    top: calc(100% - 445px);
+    right: 34px;
+
+    width: 100%;
+    max-width: max(600px, min(100%, 100px));
+    height: auto;
+
+    filter: drop-shadow(0px 4px 34px rgba(0, 0, 0, 0.45));
+    border-radius: 16px;
+    background: #000;
+
+    transition: opacity 0.5s ease-in-out;
+
+    &.hidden {
+        display: none;
+    }
+
+    @media (max-width: $sm) {
+        top: calc(100% - 400px);
+
+        left: 0;
+        right: 0;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 0;
+    }
+
+    .info {
+        @include flexbox($alignItems: center, $justifyContent: space-between, $flow: column nowrap);
+        @include pxToEm(padding, 15);
+
+        width: 100%;
+        max-width: max(50%, min(100%, 300px));
+        height: 100%;
+        position: relative;
+
+        @media (max-width: $sm) {
+            max-width: 100%;
+        }
+    }
+
+    .title {
+        @include pxToEm(margin-top, 36);
+        @include pxToEm(margin-bottom, 10);
+        @include font(46, 28, 500, rgb(255, 255, 255));
+        line-height: 51px;
+        letter-spacing: -0.04em;
+    }
+
+    .value {
+        @include pxToEm(margin-bottom, 16);
+        @include font(40, 28, 500, transparent);
+        line-height: 44px;
+        letter-spacing: -0.04em;
+
+        background: linear-gradient(90deg, #7d5317 16.52%, #eddf95 83.91%), rgba(210, 152, 26, 0.6);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-fill-color: transparent;
+    }
+
+    .text {
+        // @include pxToEm(margin-bottom, 40);
+        @include font(16, 16, 500, #6c6c70);
+        line-height: 44px;
+        letter-spacing: 0.05em;
+    }
+
+    .button {
+        @include pxToEm(margin-top, 40);
+        @include pxToEm(padding, 12 24);
+
+        margin-bottom: auto;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 14px;
+
+        transition: 0.2s ease 0ms;
+
+        span {
+            @include font(16, 16, 500, rgb(255, 255, 255));
+            line-height: 44px;
+            letter-spacing: 0.05em;
+        }
+
+        &:hover {
+            filter: brightness(0.8);
+        }
+    }
+
+    .close {
+        @include pxToEm(padding, 5);
+        position: absolute;
+        top: 0;
+        right: 0;
+
+        cursor: pointer;
+
+        width: 24px;
+        height: 24px;
+
+        svg {
+            width: 100%;
+            height: 100%;
+
+            use {
+                fill: rgb(255 255 255 / 30%);
+            }
+        }
+    }
+}

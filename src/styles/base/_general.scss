@@ -1,113 +1,57 @@
-$xs: 320px;
-$sm: 576px;
+// media как у bootstrap
+$xs: 390px;
+$sm: 760px;
 $md: 768px;
-$mdx: 992px;
-$mdx_s: 993px;
-$lg: 1200px;
-$lgx: 1440px;
-$xl: 1920px;
-$xxl: 2560px;
-
-$white: #fff;
-$black: #000;
-$green: #55b63d;
-$red: #ba2222;
-$blue: #1f34ef;
-$border-radius: 5px;
+$lg: 992px;
+$xl: 1200px;
+$xxl: 1400px;
 
 :root {
-    --xs: 320;
-    --sm: 576;
-    --md: 768;
-    --mdx: 992;
-    --lg: 1200;
-    --lgx: 1440;
-    --xl: 1920;
-    --xxl: 2560;
+    --xs: 390px;
+    --sm: 576px;
+    --md: 768px;
+    --lg: 992px;
+    --xl: 1200px;
+    --xxl: 1400px;
+
+    --orange: #d7a830;
 }
 
-body {
-    font-family: "Inter", sans-serif;
-    font-size: 14px;
-
-    &::-webkit-scrollbar {
-        display: none;
-    }
-}
-
-* {
-    box-sizing: border-box;
+html {
     ::-webkit-scrollbar {
         width: 2px;
         height: 2px;
     }
 
+    ::-webkit-scrollbar-track {
+        background: rgb(215 215 215);
+    }
+
     ::-webkit-scrollbar-thumb {
-        background: rgb(255 255 255 / 25%);
+        background: rgb(110 110 110);
         border-radius: 10px;
         opacity: 0.3;
     }
 }
 
+body {
+    font-family: "Graphik", sans-serif;
+    font-size: 14px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
 a {
-    color: #688aff;
     text-decoration: none;
+    color: inherit;
 }
 
 .view {
-    @include flexbox($alignItems: center, $justifyContent: flex-start, $flow: column nowrap);
-
-    background: #181c2c;
-    color: $white;
+    background: #fff;
 
     width: 100%;
-    height: calc(var(--vh, 1vh) * 100);
-    min-height: 100%;
-
-    @media (max-width: $mdx_s) and (orientation: landscape) {
-        height: 100vh;
-    }
-}
-
-.sitemap {
-    width: 100%;
+    min-height: calc(var(--vh, 1vh) * 100 * 2);
     height: 100%;
-}
-
-.handle-back {
-    width: 100%;
-    padding: 0 !important;
-
-    .btn-back {
-        width: 100%;
-        border: none;
-
-        cursor: pointer;
-
-        &__change-password {
-            @include flexbox($alignItems: center, $flow: row nowrap, $gap: 10px);
-            @include pxToEm(padding, 15);
-            background: rgba(24, 28, 44, 1);
-
-            .icon {
-                width: 20px;
-                height: 20px;
-
-                use {
-                    stroke: $white;
-                    stroke-width: 7px;
-                    stroke-linecap: round;
-                    stroke-linejoin: round;
-                }
-            }
-
-            span {
-                @include font(18, 18, 700, $white);
-
-                display: block;
-                width: 100%;
-                text-transform: uppercase;
-            }
-        }
-    }
 }
