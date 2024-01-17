@@ -5,7 +5,7 @@
     background: linear-gradient(180deg, #101010 0%, #0f0f0f 100%);
 
     z-index: 1;
-    
+
     &.hidden {
         display: none;
     }
@@ -13,12 +13,12 @@
     .image {
         pointer-events: none;
         width: auto;
-        max-width: 160px;
         height: 54px;
-        object-fit: contain;
-        object-position: left center;
+        object-fit: cover;
+        object-position: top right;
 
         @media (max-width: $lg) {
+            max-width: 160px;
             object-fit: cover;
             object-position: center right;
         }

@@ -442,10 +442,9 @@ a {
 .alerts .image {
   pointer-events: none;
   width: auto;
-  max-width: 160px;
   height: 54px;
-  object-fit: contain;
-  object-position: left center;
+  object-fit: cover;
+  object-position: top right;
 }
 
 .alerts .message {
@@ -654,6 +653,7 @@ a {
 
 @media (max-width: 992px) {
   .alerts .image {
+    max-width: 160px;
     object-fit: cover;
     object-position: center right;
   }
