@@ -3,7 +3,7 @@
     @include pxToEm(padding, 15);
 
     position: absolute;
-    top: calc(100% - 445px);
+    top: calc(100% - 490px);
     right: 34px;
 
     width: 100%;
@@ -25,7 +25,7 @@
     }
 
     @media (max-width: $sm) {
-        top: calc(100% - 400px);
+        top: calc(100% - 380px);
 
         left: 0;
         right: 0;
@@ -77,9 +77,9 @@
 
     .button {
         @include pxToEm(margin-top, 40);
+        @include pxToEm(margin-bottom, 40);
         @include pxToEm(padding, 12 24);
 
-        margin-bottom: auto;
         background: rgba(255, 255, 255, 0.1);
         border-radius: 14px;
 

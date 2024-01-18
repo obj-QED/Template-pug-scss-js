@@ -540,7 +540,7 @@ a {
   justify-content: flex-end;
   padding: 0.9375em;
   position: absolute;
-  top: calc(100% - 445px);
+  top: calc(100% - 490px);
   right: 34px;
   width: 100%;
   max-width: max(600px, min(100%, 100px));
@@ -601,8 +601,8 @@ a {
 
 .alerts-banner .button {
   margin-top: 2.5em;
+  margin-bottom: 2.5em;
   padding: 0.75em 1.5em;
-  margin-bottom: auto;
   background: rgba(255, 255, 255, 0.1);
   border-radius: 14px;
   transition: 0.2s ease 0ms;
@@ -681,7 +681,7 @@ a {
   }
 
   .alerts-banner {
-    top: calc(100% - 400px);
+    top: calc(100% - 380px);
     left: 0;
     right: 0;
     margin-left: auto;
