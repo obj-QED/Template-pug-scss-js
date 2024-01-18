@@ -39,8 +39,6 @@ document.addEventListener("DOMContentLoaded", () => {
         observer.observe(topBanner);
     }
 
-    let closeButton = document.getElementById("bottomBanner");
-    closeButton.addEventListener("click", () => {
-        closeBanner(bottomBanner, observer);
-    });
+    let closeButton = bottomBanner.querySelector(".close");
+    closeButton.addEventListener("click", () => closeBanner(bottomBanner, observer));
 });

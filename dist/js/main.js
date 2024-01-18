@@ -41,9 +41,9 @@ document.addEventListener("DOMContentLoaded", function () {
     });
     observer.observe(topBanner);
   }
-  var closeButton = document.getElementById("bottomBanner");
+  var closeButton = bottomBanner.querySelector(".close");
   closeButton.addEventListener("click", function () {
-    closeBanner(bottomBanner, observer);
+    return closeBanner(bottomBanner, observer);
   });
 });
 
