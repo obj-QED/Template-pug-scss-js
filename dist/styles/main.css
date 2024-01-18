@@ -464,7 +464,6 @@ a {
 
 .alerts .list li {
   margin-left: 1.0625em;
-  color: rgba(255, 255, 255, 0.15);
 }
 
 .alerts .list .item {
@@ -473,6 +472,10 @@ a {
   color: rgb(255, 255, 255);
   line-height: 20px;
   letter-spacing: 0.003em;
+}
+
+.alerts .list .item::marker {
+  color: rgba(255, 255, 255, 0.15);
 }
 
 .alerts .list .color-orange {

@@ -43,13 +43,16 @@
 
         li {
             @include pxToEm(margin-left, 17);
-            color: rgb(255 255 255 / 15%);
         }
 
         .item {
             @include font(16, 14, 400, rgb(255 255 255));
             line-height: 20px;
             letter-spacing: 0.003em;
+
+            &::marker {
+                color: rgb(255 255 255 / 15%);
+            }
         }
 
         .color-orange {
