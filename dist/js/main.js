@@ -29,8 +29,10 @@ document.addEventListener("DOMContentLoaded", function () {
       entries.forEach(function (entry) {
         if (entry.isIntersecting) {
           bottomBanner.style.opacity = "0";
+          bottomBanner.style.visibility = "hidden";
         } else {
           bottomBanner.classList.remove("hidden");
+          bottomBanner.style.visibility = "visible";
           setTimeout(function () {
             return bottomBanner.style.opacity = "1";
           }, 50);
